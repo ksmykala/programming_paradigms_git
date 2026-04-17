@@ -1,2 +1,3 @@
 create new branch - with feature 1
+create new branch - with feature 2 & some extras
 create new branch - with feature 3 + extras
