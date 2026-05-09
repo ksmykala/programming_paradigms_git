@@ -1,60 +1,25 @@
-Part A — Paradigm Identification (10 points)
-File: part_a_paradigms.md
-
-Read the four code snippets below. For each one:
-
-Name the primary programming paradigm being used.
-Write 2–3 sentences explaining the specific features of the snippet that indicate that paradigm.
-Snippet 1
-total = 0
-for expense in expenses:
-    total += expense["amount"]
-print(f"Total spending: {total:.2f}")
-Snippet 2
-def get_total(expense_list):
-    total = 0
-    for e in expense_list:
-        total += e["amount"]
-    return total
-
-def get_by_category(expense_list, category):
-    result = []
-    for e in expense_list:
-        if e["category"] == category:
-            result.append(e)
-    return result
-
-total = get_total(expenses)
-food = get_by_category(expenses, "Food")
-Snippet 3
-totals = {}
-for expense in expenses:
-    cat = expense["category"]
-    totals[cat] = totals.get(cat, 0) + expense["amount"]
-most_expensive_category = max(totals, key=lambda cat: totals[cat])
-Snippet 4
-food_total = sum(
-    e["amount"]
-    for e in expenses
-    if e["category"] == "Food"
-)
-
-amounts = list(map(lambda e: e["amount"], expenses))
-above_average = list(filter(lambda a: a > sum(amounts) / len(amounts), amounts))
-Answer format — create part_a_paradigms.md with this structure:
+Part A — Paradigm Identification
 
 ## Snippet 1
-**Paradigm**: ...
-**Explanation**: ...
+
+**Paradigm**: Imperative
+
+**Explanation**: This snippet uses step-by-step instructions to calculate the total spending. The variable `total` is updated during each iteration of the loop, which shows the core idea of imperative programming.
 
 ## Snippet 2
-**Paradigm**: ...
-**Explanation**: ...
+
+**Paradigm**: Procedural
+
+**Explanation**: This snippet organizes logic into reusable functions as `get_total`. Each function performs a specific task and can be called independently with different arguments,which shows the core idea of procedural programming.
 
 ## Snippet 3
-**Paradigm**: ...
-**Explanation**: ...
+
+**Paradigm**: Primarily imperative with hints of Declarative
+
+**Explanation**: This snippet is primarily imperative because it uses a loop and updates a dictionary `totals` step by step to accumulate category sums. It manages program state through repeated assignment operations. The use of `max(..., key=lambda ...)` adds a declarative element by expressing what result is needed rather than how to compute it in full detail.
 
 ## Snippet 4
-**Paradigm**: ...
-**Explanation**: ...
+
+**Paradigm**: Functional
+
+**Explanation**: This snippet uses functional programming techniques such as `map`, `filter` functions. Instead of manually looping variables, computations are expressed as transformations on collections of data. The code emphasizes immutability over explicit state changes in variables.
