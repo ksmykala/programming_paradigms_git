@@ -180,4 +180,5 @@ def print_summary(expense_list):
     for item in above_avg:
         print(f"  - {item["description"]} ({item["amount"]:.2f})")
 
-print_summary(expenses)
+if __name__ == "__main__":   
+    print_summary(expenses)
