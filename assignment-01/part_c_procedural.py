@@ -189,7 +189,7 @@ def print_summary(expense_list):
     print(
         "\nMost expensive :",
         max_item["description"],
-        "(" + max_item["category"] + ")",
+        f"({max_item['category']})",
         "—",
         format(max_item["amount"], ".2f")
     )
@@ -216,7 +216,6 @@ def print_summary(expense_list):
             expense["description"],
             "(" + format(expense["amount"], ".2f") + ")"
         )
-    pass
 
 # Entry point
 if __name__ == "__main__":

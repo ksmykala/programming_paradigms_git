@@ -1,59 +1,83 @@
-Note to self
-Reminders about git
-You have an alias: git config --global alias.acp '!f() { git add -A && git commit -m "$1" && git push; }; f'
-You just have to: git acp "message"
-TASK STUFF
+Part E — README
 
-Part E — README (10 points)
-File: README.md
+# Personal Expense Tracker
 
-Write a Markdown document (minimum 300 words) that covers:
+## Overview
 
-What the project does — briefly describe the Expense Tracker.
-How to run it — commands to execute each part (e.g. python part_b_imperative.py).
-Paradigm comparison — for each of the three styles (imperative, procedural, functional), explain:
-What made it easy or hard to write that way?
-What would happen if the dataset grew to 100 000 records — would your code still work? Would it be readable?
-One thing you would do differently if you had to start over.
-Use proper Markdown: at least one heading level, a code block showing a sample run, and a bulleted or numbered list.
+This project is a command-line Personal Expense Tracker written in Python. 
+It reads a dataset of expenses and generates statistics such as:
 
+- Total expenses
+- Number of records
+- Category totals
+- Most and least expensive items
+- Average expense amount
+- Expenses above average
 
+The assignment is divided into five parts:
+- Part A — Paradigm Identification
+- Part B — Imperative Implementation
+- Part C — Procedural Refactoring
+- Part D — Functional Elements
+- Part E — README
 
-Repository Structure
-Submit your work as a GitHub repository with the following layout:
+---
 
+## Repository Structure
+
+```text
 assignment-01/
 ├── README.md
 ├── part_a_paradigms.md
 ├── part_b_imperative.py
 ├── part_c_procedural.py
 └── part_d_functional.py
-All Python files must be runnable from the command line without errors (python <file>.py).
+```
 
-Submission instructions
-Create a folder called assignment-01 in GitHub repository (the one you were given access to in class [use your own branch], or your own public repo).
-Push all five files listed above.
-Submit the link on Moodle.
-Note: commit messages matter — use clear, descriptive messages (e.g. Add Part B imperative implementation). A repo with a single "upload all files" commit will lose 2 points.
+---
 
+## How to Run
+Use an IDE to run/view the files.
 
-Grading Rubric
-Part	Max pts	Key criteria
-A — Paradigm Identification	10	Correct identification + clear explanation for each snippet
-B — Imperative	25	Correct outputs; no helper functions; no map/filter/sum/max/min builtins
-C — Procedural	35	All functions present; docstrings; print_summary delegates to helpers; same output as B
-D — Functional	20	Correct functional rewrites; assertions pass; no explicit loops in D1–D4
-E — README	10	≥300 words; covers all four required points; proper Markdown
-Commit quality	−2	Deducted for a single "dump all" commit
+Or use the command line.
+In the command line, enter the folder assignment-01
 
-Academic Integrity
-You are encouraged to discuss ideas with classmates, but the code and write-up you submit must be your own. Do not copy code from the internet or from other students. Plagiarism will result in a grade of 0 for the assignment. The goal is to fully understand the topic, not to pass the assignment.
+Run the files from the command line:
+```bash
+python part_b_imperative.py
+python part_c_procedural.py
+python part_d_functional.py
+```
 
+---
 
-Tips
-Start with Part B. Once your loops work, refactoring into functions (Part C) is straightforward.
-Test each function individually before wiring everything together in print_summary.
-Part D: if you are stuck on the dict comprehension in D2, first solve it with a regular loop, then convert it step by step.
-README: write it last, after you have seen all three styles side by side — you will have more to say.
-Good luck!
+## Sample Output
+```text
+Total expenses: 476.44
+Number of records: 12
+```
 
+---
+
+## Paradigm Comparison
+
+### Imperative Programming
+
+The imperative version used loops, variables, and conditionals to control the program step by step. It was simple to understand.
+
+### Procedural Programming
+
+The procedural version improved readability by splitting the code into reusable functions. This made the program easier to maintain and test.
+
+### Functional Programming
+
+The functional version used `map()`, `filter()`, `lambda`, and comprehensions to make the code shorter and more expressive. However, functional code can sometimes be harder to read for beginners.
+
+If the dataset grew to 100,000 records, all versions would still work, but the procedural and functional versions would be easier to maintain and extend.
+
+---
+
+## One thing you would do differently if you had to start over.
+
+I could have written my first commit comment better. And maybe in general my comments could have been worded better. 
+Otherwise I think I have not erred in any massive way. 

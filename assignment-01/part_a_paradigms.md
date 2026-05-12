@@ -10,7 +10,7 @@ Part A — Paradigm Identification
 
 **Paradigm**: Procedural
 
-**Explanation**: This snippet organizes logic into reusable functions as `get_total`. Each function performs a specific task and can be called independently with different arguments,which shows the core idea of procedural programming.
+**Explanation**: This snippet organizes logic into reusable functions such as `get_total`. Each function performs a specific task and can be called independently with different arguments, which shows the core idea of procedural programming.
 
 ## Snippet 3
 
