@@ -64,3 +64,20 @@ Average expense: 39.70
 - Restaurant dinner (55.20)
 - Electricity bill (120.00)
 - Internet bill (45.00)
+
+# Paradigm comparsion
+## Imperative
+- Easy to write by explainin what to do 1:1
+- After many runs it still works but finding whats wrong might be challenging
+
+## Procedural
+- It's hard to track what the functions take and give out
+- After many attempts it would still work but it would be easier to just use a loop
+
+## Functional
+- Uses functions to keep the code simpler and cleaner
+- Some loops break that cycle like my total accumulator
+- Scales good enough but needs to be carefully made
+
+# Things to do differently
+- The only thing I would do differently is put the data into a single file and read it from my code instead of pasting it every time
