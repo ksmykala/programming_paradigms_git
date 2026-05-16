@@ -1,14 +1,14 @@
-# expense tracker - assignment 01
+# assignment 01
 
 ## what the project does
 
-this is an expense tracker that goes through a list of 12 expenses and answers some basic questions about them. the expenses have a date, category, amount and description. the same problems are solved three different times using three different paradigms (imperative, procedural and functional) so you can see how the code changes depending on the style you pick.
+this is an expense tracker that goes through a list of 12 expenses and answers some basic questions. the same problems are solved three different times in three different paradigms (imperative, procedural, functional) so you can see how the code changes depending on the style.
 
-the tracker answers these questions:
+the tracker answers:
 
-- what is the total amount spent and how many records are there
+- what is the total spent and how many records are there
 - how much was spent in each category
-- what is the most expensive expense and what is the least expensive
+- what is the most and least expensive expense
 - which expenses are above the average
 
 ## how to run
@@ -21,9 +21,9 @@ python part_c_procedural.py
 python part_d_functional.py
 ```
 
-part a is just a markdown file with my paradigm explanations, you do not run it.
+part a is just a markdown file, you do not run it.
 
-sample output when you run part b or part c:
+sample output:
 
 ```
 total expenses:  476.44
@@ -51,39 +51,30 @@ expenses above average:
 
 ### imperative (part b)
 
-what made it easy is that imperative code is basically how i think when i am solving a problem. you start with a variable at zero, you loop through the data, you add to the variable. it is very direct and you can see what is happening at every step.
+easy because imperative code is how i think when solving a problem. you start with a variable at zero, loop through the data, add to it. very direct.
 
-what made it hard is that there is a lot of repetition. for almost every question i had to write a new loop with new variables, and some of the loops looked almost the same. if i forgot to reset a variable somewhere there would be a bug that is hard to find.
+hard because there is a lot of repetition. almost every question needed a new loop with new variables and they looked almost the same. easy to forget to reset a variable somewhere.
 
-if the dataset grew to 100 000 records the code would still work because python can loop through that many items no problem. the bigger issue is that the file would be very long and messy because everything is written out from scratch. it would be readable for small problems but not for big ones.
+at 100 000 records the code would still work but the file would be very long and messy. readable for small problems, not for big ones.
 
 ### procedural (part c)
 
-what made it easy is that once you have a function like get_total or get_average you can just call it whenever you need it. print_summary becomes very short because it just calls the other functions in order. it also makes the code easier to read because each function does one thing and you can give it a clear name.
+easy because once you have a function like get_total you just call it whenever you need it. print_summary is short because it just calls the other functions.
 
-what made it hard is deciding what each function should do. some functions ended up needing other functions inside them (like get_average uses get_total and get_count) and you have to be careful not to make functions that do too much.
+hard because deciding what each function should do takes thought. some functions ended up using other functions (get_average uses get_total and get_count).
 
-if the dataset grew to 100 000 records the procedural code would handle it well. the functions stay the same, only the data gets bigger. it is also much more readable because you can understand what the code does just by reading the function names without going into the details.
+at 100 000 records this handles it well. functions stay the same, only the data gets bigger. also more readable because the function names tell you what is happening.
 
 ### functional (part d)
 
-what made it easy is that some problems became one line. get_total_functional is just sum of a generator expression, that is it. map and filter with lambdas are also very short and you can read them like a sentence (filter the expenses where amount is bigger than average).
+easy because some problems become one line. get_total_functional is just sum of a generator. map and filter with lambdas read like a sentence.
 
-what made it hard is that get_category_totals_functional took me a while to figure out because python does not have a built in groupby function. i had to first get the unique categories using a set, then for each category sum up the matching expenses. it works but it loops through the data multiple times.
+hard because get_category_totals_functional took a while to figure out since python has no built in groupby. i had to first get unique categories using a set, then sum up matching expenses for each one.
 
-if the dataset grew to 100 000 records the functional code would still work and would actually use less memory because generators do not build the full list in memory at once. the only problem is the category totals function because it goes through the whole list once per category. for 100 000 records with only 4 categories that is 400 000 operations which is fine, but it is not the most efficient way.
+at 100 000 records it would still work and use less memory because generators do not build the full list at once. only problem is category totals loops through the data once per category, but with only 4 categories it is fine.
 
 ## one thing i would do differently
 
-if i had to start over i would use f-strings from the beginning for printing. right now i am using print with commas which adds extra spaces and rounds floats in a weird way (like 67.0 instead of 67.00). f-strings would let me control the spacing and the decimal places exactly, and the output would look closer to what the assignment expected. it is a small thing but it would make the output look more professional.
+if i had to start over i would not write a full bubble sort for sorting just 4 categories. the assignment said no sorted() builtin so i reached for bubble sort because that is what i remembered from class, but for only 4 items the temp variable and nested loops are way more code than needed. it is also very slow. i could have just written the categories in alphabetical order by hand.
 
-## file structure
-
-```
-assignment-01/
-├── README.md
-├── part_a_paradigms.md
-├── part_b_imperative.py
-├── part_c_procedural.py
-└── part_d_functional.py
-```
+i would also handle edge cases better. for example get_most_expensive starts with expense_list[0] which would crash on an empty list. it does not matter for this assignment because the dataset always has 12 expenses, but real code should not assume the input is always clean.
