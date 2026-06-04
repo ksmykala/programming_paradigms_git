@@ -111,6 +111,3 @@ if __name__ == "__main__":
     print("\nFormatted expenses:")
     for line in format_expenses(expenses):
         print(line)
-
-
-
