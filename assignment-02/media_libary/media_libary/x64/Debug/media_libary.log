@@ -1,0 +1,5 @@
+﻿  media_libary.cpp
+C:\Users\Admin\source\repos\ProghramingParadisg\assignment-02\media_libary\media_libary.cpp(271,41): warning C4267: "+=": konwersja z "size_t" do "int", możliwa utrata danych
+  media_libary.vcxproj -> C:\Users\Admin\source\repos\ProghramingParadisg\assignment-02\media_libary\x64\Debug\media_libary.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

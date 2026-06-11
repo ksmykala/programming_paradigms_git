@@ -1,0 +1,32 @@
+Snippet 1 (OOP) — property / validation
+@property
+def title(self):
+    return self._title
+concept: encapsulation
+explanation: basicaly @property give me acces _title as normal variabole ( obj.title) but in technicaly its a method. That way i can add extra logic without messing up everything while someone use this class.
+
+
+Snippet 2 (OOP) — composition
+class Library:
+    def __init__(self, name):
+        self._playlists = {}
+
+    def add_playlist(self, playlist):
+        self._playlists[playlist.name] = playlist
+concept: compositon
+explanation: Libary dosent inherit from playlist but stores playlist objects in dictionary. this makes code more flexible.
+
+
+
+Snippet 3 (Pattern) — Strategy
+def items_sorted(self):
+    return self._sort.sort(self._items)
+pattern: strategy
+explanation: the items_sorted method wont do sorting itself.  it hands it off to some _sort object.That means I can swap in different sorting algorithms whenever I want,
+
+Snippet 4 (Pattern) — Observer
+def publish(self, event_name, payload):
+    for callback in self._subscribers.get(event_name, []):
+        callback(payload)
+pattern: observer
+explanation: when publish is called its loops throught all the functions that signed up for that event and runs them.
