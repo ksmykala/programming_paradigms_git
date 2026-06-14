@@ -1,60 +1,46 @@
-# Personal Expense Tracker
+# Media Library Hub
 
-## Project Description
-
-This project is a Personal Expense Tracker developed in Python. The program reads a dataset of expenses and calculates useful statistics such as total spending, category totals, most expensive expense, least expensive expense, and expenses above the average amount.
-
-The assignment was implemented using three different programming paradigms:
-
-- Imperative Programming
-- Procedural Programming
-- Functional Programming
-
-This allows comparison between different approaches to solving the same problem.
+This project implements a small Media Library Hub using Object-Oriented Programming principles and several design patterns. The application manages different types of media items including songs, podcasts, and audiobooks. Media items are loaded from a dataset, stored inside playlists, and organized within a library. The program demonstrates inheritance, composition, polymorphism, and multiple design patterns in a single Python file.
 
 ## How to Run
 
-Run the files from the command line:
-
 ```bash
-python part_b_imperative.py
-python part_c_procedural.py
-python part_d_functional.py
+python3 media_library.py
 ```
 
-## Paradigm Comparison
+## OOP Example
 
-### Imperative Programming
+Inheritance is used through the MediaItem abstract base class. Song, Podcast, and Audiobook inherit from MediaItem and provide their own implementation of the describe() method.
 
-The imperative version was straightforward to write because it uses loops, variables, and conditionals. However, the code becomes longer and harder to maintain as the project grows.
+Composition is used because a Library contains Playlist objects and a Playlist contains MediaItem objects.
 
-If the dataset increased to 100,000 records, the program would still work, but the code could become difficult to manage because all logic is contained in a single block.
+## Pattern Example
 
-### Procedural Programming
+The Factory Method pattern is implemented in the load_items() function, which creates the correct object type based on the value of record["type"].
 
-The procedural version improves organization by dividing the logic into functions. Each function has a single responsibility, making the code easier to read, test, and maintain.
+The Observer pattern is implemented through EventBus. When an item is added to a playlist, subscribers receive an event notification.
 
-With 100,000 records, the program would still work well and remain readable because the logic is separated into reusable functions.
+The Strategy pattern is implemented using SortByTitle and SortByDuration classes. A playlist can switch sorting behavior without modifying its internal data.
 
-### Functional Programming
+The Template Method pattern is implemented by CatalogExporter and CsvCatalogExporter for CSV export.
 
-The functional version uses tools such as map(), filter(), lambda expressions, and comprehensions. This often results in shorter and more expressive code.
-
-With a larger dataset, the code would still work efficiently. However, excessive use of functional constructs can sometimes reduce readability for beginners.
-
-## What I Would Do Differently
-
-If I started over, I would create reusable helper functions earlier and improve the report formatting. I would also add support for reading expense data from external files instead of storing the dataset directly in the source code.
+The Facade pattern is implemented through run_media_hub(), which coordinates loading items, creating the library, event handling, sorting, and exporting.
 
 ## Sample Output
 
 ```text
-Total expenses: 476.44
-Number of records: 12
+{'total_items': 4, 'total_duration': 32954}
 
-Category breakdown:
-Entertainment : 99.99
-Food : 144.45
-Transport : 67.00
-Utilities : 165.00
+['added:Bohemian Rhapsody',
+ 'added:Blinding Lights',
+ 'added:Lex Fridman #400',
+ 'added:Clean Code']
+
+Sorted: Blinding Lights | Bohemian Rhapsody | Clean Code | Lex Fridman #400
+
+type,title,duration
+Song,Bohemian Rhapsody,354
+Song,Blinding Lights,200
+Podcast,Lex Fridman #400,7200
+Audiobook,Clean Code,25200
 ```
